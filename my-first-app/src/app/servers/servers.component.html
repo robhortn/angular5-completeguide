@@ -4,9 +4,9 @@
         <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
         <input type="text" class="form-control" [(ngModel)]="serverName">
     </div>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <p>{{ serverName }}</p>
-    </div>
+    </div> -->
 </div>
 <div class="row">
     <div class="col-md-12">&nbsp;</div>
@@ -14,10 +14,10 @@
 <div class="row">
     <div class="col-md-12">
         <button class="btn btn-primary" [disabled]="!allowNewServers" (click)="onCreateServer()">Add Server</button>
-        &nbsp; {{ serverCreationStatus }}
+        &nbsp; <span *ngIf="serverCreated">Server, {{ serverName }} , was created</span>
+        <!-- {{ serverCreationStatus }} -->
     </div>
     <div class="col-md-12">
-        <app-server></app-server>
-        <app-server></app-server>
+        <app-server *ngFor="let server of servers"></app-server>
     </div>
 </div>
